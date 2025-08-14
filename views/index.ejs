@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="author">
+        <h1 class="author_heading">Hi, I am Tanu.</h1>
+        <p class="author_body"> I created <strong>StoryGrid</strong> to share compelling short stories, spark imagination, and connect with readers who love storytelling as much as I do.</p>
+    </div>
+    
+    <img src="/img/hero-image.webp" alt="person looking out through window" class="hero-image" width="981" height="528">
+
+    <section class="articles">
+        <h2 class="article_heading">Latest Posts</h2>
+
+        <ul class="article-ul">
+
+        <% data.forEach(post => { %>
+
+            <li>
+                <a href="/post/<%= post._id %>">
+                    <span><%= post.title %></span>
+                    <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+                </a>
+            </li>
+
+        <% }) %>
+        </ul>
+
+        <% if (nextPage!==null) { %>
+               <a href="/?page" class="pagination">&lt; view Older Posts</a>
+        <% } %>
+
+        <a href="#" class="pagination">&lt; View Older Posts</a>
+    </section>
+</body>
+</html>
